@@ -6,7 +6,7 @@ Automated Auction System is an Application Software that is used for the buying 
 Users are
 1. Administrator</br>
 2. Buyer</br>
-3.Seller</br>
+3. Seller
 
 Role of the users-
 1. Administrator</br>
