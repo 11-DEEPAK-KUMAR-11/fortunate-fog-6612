@@ -19,17 +19,17 @@ E. Solve the dispute report.</br>
 
 
 2. Seller
-A. Register himself or herself as seller.
-B. Create list of items to sell.
-C. Update Item price, quantity, etc.
-D. Add new Item in the list.
-E. Remove items from the list.
-F. View the sold Item history.
+A. Register himself or herself as seller.</br>
+B. Create list of items to sell.</br>
+C. Update Item price, quantity, etc.</br>
+D. Add new Item in the list.</br>
+E. Remove items from the list.</br>
+F. View the sold Item history.</br>
 
 
 
 3. Buyer
-A. Register himself or herself as Buyer.
-B. Search and view Items by category.
-C. Select and view all the buyers and also their Items category wise.
-D. Selects Items to buy.
+A. Register himself or herself as Buyer.</br>
+B. Search and view Items by category.</br>
+C. Select and view all the buyers and also their Items category wise.</br>
+D. Selects Items to buy.</br>
