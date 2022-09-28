@@ -9,8 +9,8 @@ Users are
 3.Seller
 
 Role of the users-
-1. Administrator
-A. View the registered buyer list.
+1. Administrator</br>
+A. View the registered buyer list.</br>
 B. View the registered Seller list.
 C. View the daily dispute report.
 D. View the daily selling report.
