@@ -1,0 +1,75 @@
+create table admin(
+ aid int primary key,
+ aname varchar(25),
+ aemail varchar(25) unique not null,
+ apassword varchar(25)
+ );
+ 
+ create table buyer(
+ bid int primary key auto_increament,
+ bname varchar(25),
+ bemail varchar(25) unique not null,
+ bpassword varchar(25)
+ );
+ 
+ create table seller(
+ sid int primary key auto_increment,
+ sname varchar(25),
+ semail varchar(25) unique not null,
+ spassword varchar(25)
+ );
+ 
+ create table items(
+ itemid int primary key auto_increment,
+ categories varchar(25),
+ price int,
+ available_quantity int
+ );
+ 
+ create table order(
+ oid int primary key auto_increment,
+ bid int,
+ sid int,
+ itemid int,
+ quantity int,
+ amount int,
+ 
+ foreign key (bid) references buyer(bid),
+ foreign key (sid) references seller(sid),
+ foreign key (itemid) references items(itemid),
+ 
+ );
+ 
+ 
+ create table disputes(
+ did int primary key auto_increment,
+ oid int,
+ bid int,
+ dstatus varchar(25) not null,
+ 
+ foreign key (bid) references buyer(bid),
+ foreign key (oid) references order(oid),
+ );
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ );
+ 
