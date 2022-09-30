@@ -1,16 +1,34 @@
 create table admin(
- aid int primary key,
+ aid int primary key auto_increment,
  aname varchar(25),
  aemail varchar(25) unique not null,
  apassword varchar(25)
  );
  
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| aid       | int         | NO   | PRI | NULL    | auto_increment |
+| aname     | varchar(25) | YES  |     | NULL    |                |
+| aemail    | varchar(25) | NO   | UNI | NULL    |                |
+| apassword | varchar(25) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+ 
  create table buyer(
- bid int primary key auto_increament,
+ bid int primary key auto_increment,
  bname varchar(25),
  bemail varchar(25) unique not null,
  bpassword varchar(25)
  );
+ 
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| bid       | int         | NO   | PRI | NULL    | auto_increment |
+| bname     | varchar(25) | YES  |     | NULL    |                |
+| bemail    | varchar(25) | NO   | UNI | NULL    |                |
+| bpassword | varchar(25) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
  
  create table seller(
  sid int primary key auto_increment,
@@ -19,12 +37,68 @@ create table admin(
  spassword varchar(25)
  );
  
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| sid       | int         | NO   | PRI | NULL    | auto_increment |
+| sname     | varchar(25) | YES  |     | NULL    |                |
+| semail    | varchar(25) | NO   | UNI | NULL    |                |
+| spassword | varchar(25) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+ 
+ CREATE TABLE items (
+    PName varchar(255) PRIMARY KEY, 
+    Price int, 
+    Category varchar(255), 
+    itemid int,
+    FOREIGN KEY (itemid) REFERENCES seller(sid)
+);
+ 
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| PName    | varchar(255) | NO   | PRI | NULL    |       |
+| Price    | int          | YES  |     | NULL    |       |
+| Category | varchar(255) | YES  |     | NULL    |       |
+| itemid   | int          | YES  | MUL | NULL    |       |
++----------+--------------+------+-----+---------+-------+ 
+
+ CREATE TABLE purchase (
+    orderid int primary key auto_increment,
+    bid int,
+    quant int,
+    amount int,
+    product varchar(255), 
+    FOREIGN KEY (bid) REFERENCES buyer(bid),
+    FOREIGN KEY (product) REFERENCES items(PName)
+);
+
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| orderid | int          | NO   | PRI | NULL    | auto_increment |
+| bid     | int          | YES  | MUL | NULL    |                |
+| quant   | int          | YES  |     | NULL    |                |
+| amount  | int          | YES  |     | NULL    |                |
+| product | varchar(255) | YES  | MUL | NULL    |                |
++---------+--------------+------+-----+---------+----------------+
+ 
+ 
  create table items(
  itemid int primary key auto_increment,
  categories varchar(25),
  price int,
  available_quantity int
  );
+ 
++--------------------+-------------+------+-----+---------+----------------+
+| Field              | Type        | Null | Key | Default | Extra          |
++--------------------+-------------+------+-----+---------+----------------+
+| itemid             | int         | NO   | PRI | NULL    | auto_increment |
+| categories         | varchar(25) | YES  |     | NULL    |                |
+| price              | int         | YES  |     | NULL    |                |
+| available_quantity | int         | YES  |     | NULL    |                |
++--------------------+-------------+------+-----+---------+----------------+
  
  create table order(
  oid int primary key auto_increment,
@@ -33,11 +107,9 @@ create table admin(
  itemid int,
  quantity int,
  amount int,
- 
  foreign key (bid) references buyer(bid),
  foreign key (sid) references seller(sid),
- foreign key (itemid) references items(itemid),
- 
+ foreign key (itemid) references items(itemid)
  );
  
  
@@ -48,7 +120,7 @@ create table admin(
  dstatus varchar(25) not null,
  
  foreign key (bid) references buyer(bid),
- foreign key (oid) references order(oid),
+ foreign key (oid) references purchase(oid),
  );
  
  
