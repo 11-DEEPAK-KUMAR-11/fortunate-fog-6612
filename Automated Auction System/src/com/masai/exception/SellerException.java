@@ -1,0 +1,16 @@
+package com.masai.exception;
+
+public class SellerException extends Exception {
+
+	public SellerException() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public SellerException(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+}
