@@ -2,18 +2,26 @@ package com.masai.bean;
 
 public class Items {
  
+	private int itemId;
 	private String category;
 	private int price;
-	private String AvlQuantity;
+	private String Pname;
 	public Items() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Items(String category, int price, String avlQuantity) {
+	public Items(int itemId, String category, int price, String pname) {
 		super();
+		this.itemId = itemId;
 		this.category = category;
 		this.price = price;
-		AvlQuantity = avlQuantity;
+		Pname = pname;
+	}
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 	public String getCategory() {
 		return category;
@@ -27,16 +35,17 @@ public class Items {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getAvlQuantity() {
-		return AvlQuantity;
+	public String getPname() {
+		return Pname;
 	}
-	public void setAvlQuantity(String avlQuantity) {
-		AvlQuantity = avlQuantity;
+	public void setPname(String pname) {
+		Pname = pname;
 	}
 	@Override
 	public String toString() {
-		return "Items [category=" + category + ", price=" + price + ", AvlQuantity=" + AvlQuantity + "]";
+		return "Items [itemId=" + itemId + ", category=" + category + ", price=" + price + ", Pname=" + Pname + "]";
 	}
+	
 	
 	
 }

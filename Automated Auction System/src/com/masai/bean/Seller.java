@@ -2,6 +2,7 @@ package com.masai.bean;
 
 public class Seller {
 
+	private int sid;
 	private String sname;
 	private String semail;
 	private String spassword;
@@ -9,12 +10,33 @@ public class Seller {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Seller(int sid,String sname,String semail) {
+		
+		super();
+
+		this.sid=sid;
+		this.sname=sname;
+		this.semail=semail;	
+	}
+	
 	public Seller(String sname, String semail, String spassword) {
 		super();
+		
 		this.sname = sname;
 		this.semail = semail;
 		this.spassword = spassword;
 	}
+	
+	
+	public int getSid() {
+		return sid;
+	}
+
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+
 	public String getSname() {
 		return sname;
 	}
