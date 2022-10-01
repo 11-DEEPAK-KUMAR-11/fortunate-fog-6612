@@ -120,9 +120,8 @@ create table admin(
  oid int,
  bid int,
  dstatus varchar(25) not null,
- 
  foreign key (bid) references buyer(bid),
- foreign key (oid) references purchase(oid),
+ foreign key (oid) references purchase(orderid)
  );
  
  
