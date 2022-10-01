@@ -10,6 +10,14 @@ public class Items {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Items(  String pname,int price,String category) {
+		super();
+		this.category = category;
+		this.price = price;
+		Pname = pname;
+	}
+	
 	public Items(int itemId, String category, int price, String pname) {
 		super();
 		this.itemId = itemId;

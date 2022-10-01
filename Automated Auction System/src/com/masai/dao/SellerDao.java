@@ -17,9 +17,9 @@ public interface SellerDao {
 	
 	public String insertItems(String Pname, int price, String category,int itemId);
 	
-	public Items updateItemList(String name)throws SellerException;
+	public String updateItemList(String proName,int price , String category,int itemId);
 	
-	public Items deleteeItemList(String name)throws SellerException;
+	public String deleteItems(int itemId);
 	
 //	public List<Order> getAllOrderDetails()throws SellerException;
 	

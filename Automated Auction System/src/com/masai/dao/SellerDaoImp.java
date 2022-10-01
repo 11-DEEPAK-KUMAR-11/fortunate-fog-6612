@@ -134,15 +134,73 @@ public class SellerDaoImp implements SellerDao {
 	}
 
 	@Override
-	public Items updateItemList(String name) throws SellerException {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateItemList(String proName,int price , String category, int itemId) {
+		
+		String message = "Not Updated..";
+		
+		try(Connection conn = DBUtil.provideConnection()) {
+			
+			
+			 PreparedStatement ps= conn.prepareStatement("update items set Pname=?,Price=?,Category=? where itemid =?");
+			 
+			 
+				
+				
+				ps.setString(1, proName);	
+				ps.setInt(2, price);
+				ps.setString(3, category);
+				ps.setInt(4, itemId);
+				
+				
+				
+				int x= ps.executeUpdate();	
+				 
+				if(x > 0)
+					message="Record Updated Sucessfully";
+				
+				 
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			
+		}
+		
+		
+		return message;
 	}
 
 	@Override
-	public Items deleteeItemList(String name) throws SellerException {
-		// TODO Auto-generated method stub
-		return null;
+	public String deleteItems(int itemId) {
+
+		String message = "Not Deleted..";
+		
+		try(Connection conn = DBUtil.provideConnection()) {
+			
+			
+			 PreparedStatement ps= conn.prepareStatement("delete from items where itemid =?");
+			 
+			 
+				ps.setInt(1, itemId);
+				
+				
+				
+				int x= ps.executeUpdate();	
+				 
+				if(x > 0)
+					message="Record Deleted Sucessfully";
+				else
+					message="Record does not exist.";
+				 
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			
+		}
+		
+		
+		return message;
 	}
 
 }
