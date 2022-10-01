@@ -193,6 +193,44 @@ public class BuyerDaoImp implements BuyerDao {
 		
 	}
 
+	@Override
+	public String selectItemsTOBuy(int bid, int qnt, int price, String pname, String date) {
+		
+		String message = "Not Product Selected..";
+		
+		try(Connection conn= DBUtil.provideConnection()) {
+			
+			PreparedStatement ps= conn.prepareStatement
+					("insert into purchase(bid,quant,amount,product,orderDate) values(?,?,?,?,?)");
+			
+			
+			
+			ps.setInt(1, bid);
+			
+			ps.setInt(2, qnt);
+			ps.setInt(3, qnt*price);
+			ps.setString(4, pname);
+			ps.setString(5,date);
+			
+			int x= ps.executeUpdate();
+			
+			
+			if(x > 0)
+				message = "Shopping Done.. !";
+			
+			
+			
+		} catch (SQLException e) {
+			message = e.getMessage();
+		}
+		
+		
+	
+	
+		
+		return message;
+	}
+
 	
 
 }

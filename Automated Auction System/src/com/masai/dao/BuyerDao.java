@@ -21,7 +21,7 @@ public interface BuyerDao {
 	
 	public void getAllItemsWithSellerDetails()throws SellerException;
 	
-//	public Items selectItemsTOBuy(int itemId);
+	public String selectItemsTOBuy(int bid, int qnt, int price, String pname, String date);
 	
 	
 

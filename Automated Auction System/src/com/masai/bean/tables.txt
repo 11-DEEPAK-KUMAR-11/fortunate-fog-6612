@@ -73,15 +73,17 @@ create table admin(
     FOREIGN KEY (product) REFERENCES items(PName)
 );
 
-+---------+--------------+------+-----+---------+----------------+
-| Field   | Type         | Null | Key | Default | Extra          |
-+---------+--------------+------+-----+---------+----------------+
-| orderid | int          | NO   | PRI | NULL    | auto_increment |
-| bid     | int          | YES  | MUL | NULL    |                |
-| quant   | int          | YES  |     | NULL    |                |
-| amount  | int          | YES  |     | NULL    |                |
-| product | varchar(255) | YES  | MUL | NULL    |                |
-+---------+--------------+------+-----+---------+----------------+
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| orderid   | int          | NO   | PRI | NULL    | auto_increment |
+| bid       | int          | YES  | MUL | NULL    |                |
+| quant     | int          | YES  |     | NULL    |                |
+| amount    | int          | YES  |     | NULL    |                |
+| product   | varchar(255) | YES  | MUL | NULL    |                |
+| orderDate | date         | NO   |     | NULL    |                |
+| status    | varchar(30)  | YES  |     | Sold    |                |
++-----------+--------------+------+-----+---------+----------------+
  
  
  create table items(
