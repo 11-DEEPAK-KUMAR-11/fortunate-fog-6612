@@ -21,7 +21,7 @@ public interface SellerDao {
 	
 	public String deleteItems(int itemId);
 	
-//	public List<Order> getAllOrderDetails()throws SellerException;
+	public void getAllOrderDetails()throws SellerException;
 	
 
 	

@@ -203,4 +203,54 @@ public class SellerDaoImp implements SellerDao {
 		return message;
 	}
 
+	@Override
+	public void getAllOrderDetails() throws SellerException {
+
+
+try(Connection conn= DBUtil.provideConnection()) {
+			
+			PreparedStatement ps= conn.prepareStatement("select * from purchase");
+			
+			ResultSet rs= ps.executeQuery();
+			
+			boolean flag= true;
+			
+			while(rs.next()) {
+			
+				flag = false;
+				int od= rs.getInt("orderid");
+				int bid= rs.getInt("bid");
+				int qnt= rs.getInt("quant");
+				int total= rs.getInt("amount");
+				String pro= rs.getString("product");
+				String date= rs.getString("orderDate");
+				String st= rs.getString("status");
+				
+				System.out.println("Order Id :"+od);
+				System.out.println("Buyer Id :"+bid);
+				System.out.println("Product Quantity :"+qnt);
+				System.out.println("Total Amount :"+total);
+				System.out.println("Product Name :"+pro);
+				System.out.println("Ordered Date :"+date);
+				System.out.println("Product Status :"+st);
+				
+				System.out.println("=========================");
+			}
+			
+			
+			if(flag)
+				System.out.println("There is no record..");
+			
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+//			throw new ItemException(e.getMessage());
+		}
+		
+		
+
+		
+	}
+
 }
