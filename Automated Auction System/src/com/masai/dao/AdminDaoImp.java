@@ -298,4 +298,40 @@ public class AdminDaoImp implements AdminDao {
 		
 	}
 
+	@Override
+	public String resolveDispute(int orderId, String updateDispute) {
+
+		String message = "Not Resolved..";
+		
+		try(Connection conn = DBUtil.provideConnection()) {
+			
+			
+			 PreparedStatement ps= conn.prepareStatement("update disputes set dstatus=? where oid =?");
+			 
+			 
+				
+			    ps.setString(1, updateDispute);
+				ps.setInt(2, orderId);	
+				
+				
+				
+				
+				
+				int x= ps.executeUpdate();	
+				 
+				if(x > 0)
+					message="Dispute Resolved Sucessfully";
+				
+				 
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			
+		}
+		
+		
+		return message;
+	}
+
 }

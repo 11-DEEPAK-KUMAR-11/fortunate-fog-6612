@@ -23,7 +23,7 @@ public interface AdminDao {
 	
 	public void getAllDisputesDetailsDailyBasis(String date);
 	
-	
+	public String resolveDispute(int orderId , String updateDispute);
 	
 	
 
