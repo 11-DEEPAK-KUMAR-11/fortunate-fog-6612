@@ -86,35 +86,6 @@ create table admin(
 +-----------+--------------+------+-----+---------+----------------+
  
  
- create table items(
- itemid int primary key auto_increment,
- categories varchar(25),
- price int,
- available_quantity int
- );
- 
-+--------------------+-------------+------+-----+---------+----------------+
-| Field              | Type        | Null | Key | Default | Extra          |
-+--------------------+-------------+------+-----+---------+----------------+
-| itemid             | int         | NO   | PRI | NULL    | auto_increment |
-| categories         | varchar(25) | YES  |     | NULL    |                |
-| price              | int         | YES  |     | NULL    |                |
-| available_quantity | int         | YES  |     | NULL    |                |
-+--------------------+-------------+------+-----+---------+----------------+
- 
- create table order(
- oid int primary key auto_increment,
- bid int,
- sid int,
- itemid int,
- quantity int,
- amount int,
- foreign key (bid) references buyer(bid),
- foreign key (sid) references seller(sid),
- foreign key (itemid) references items(itemid)
- );
- 
- 
  create table disputes(
  did int primary key auto_increment,
  oid int,
@@ -124,7 +95,15 @@ create table admin(
  foreign key (oid) references purchase(orderid)
  );
  
- 
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| did     | int         | NO   | PRI | NULL    | auto_increment |
+| oid     | int         | YES  | MUL | NULL    |                |
+| bid     | int         | YES  | MUL | NULL    |                |
+| dstatus | varchar(25) | NO   |     | NULL    |                |
+| Date    | date        | NO   |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
  
  
  

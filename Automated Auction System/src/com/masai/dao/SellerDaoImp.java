@@ -203,11 +203,13 @@ public class SellerDaoImp implements SellerDao {
 		return message;
 	}
 
+	// view order History
 	@Override
 	public void getAllOrderDetails() throws SellerException {
 
 
-try(Connection conn= DBUtil.provideConnection()) {
+
+		try(Connection conn= DBUtil.provideConnection()) {
 			
 			PreparedStatement ps= conn.prepareStatement("select * from purchase");
 			

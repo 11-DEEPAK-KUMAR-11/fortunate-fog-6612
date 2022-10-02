@@ -19,9 +19,9 @@ public interface AdminDao {
 	
 	public List<Buyer> getAllBuyerDetails()throws BuyerException;
 	
-//	public List<Order> getAllOrderDetails();
+	public void getAllOrderDetailsDailyBasis(String date);
 	
-//	public List<Dispute> getAllOrderDetails();
+	public void getAllDisputesDetailsDailyBasis(String date);
 	
 	
 	
