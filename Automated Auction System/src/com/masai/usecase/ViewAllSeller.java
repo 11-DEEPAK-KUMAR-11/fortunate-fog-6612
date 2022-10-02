@@ -21,9 +21,9 @@ public class ViewAllSeller {
 		
 		sellerDetails.forEach(s ->{
 			
-			System.out.println("Student Name :"+s.getSid());
-			System.out.println("Student email: "+s.getSname());
-			System.out.println("Student email: "+s.getSemail());
+			System.out.println("Seller Id :"+s.getSid());
+			System.out.println("Seller Name: "+s.getSname());
+			System.out.println("Seller E-mail: "+s.getSemail());
 			
 			System.out.println("=======================");
 		});
